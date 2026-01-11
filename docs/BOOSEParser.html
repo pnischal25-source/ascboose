@@ -11,10 +11,9 @@
     <div id="Contents" />
 
     
- Parses BOOSE program text into executable command objects.
- Responsible for converting raw text input into strongly typed
- command instances, validating syntax, and reporting parsing errors.
- 
+ Parses BOOSE program source code into executable command objects.
+ This parser supports:
+ <ul><li>Simple drawing commands</li><li>Variables and arrays</li><li>Conditional logic (if / else)</li><li>Loop constructs (while / for)</li><li>User-defined methods</li></ul>
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
         <span class='SectionHeader'>
@@ -42,12 +41,44 @@
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
+    <div id="PageTitle">Constructor BOOSEParser</div>
+    <div id="Contents" />
+
+    
+ Initializes a new instance of the <a href="" >BOOSEParser</a> class.
+ 
+        <div id='SectionHeader0' class='SectionHeader'>
+        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
+        <span class='SectionHeader'>
+            <span class='ArrowCursor' >
+            Syntax
+            </span>
+        </span>
+    </div>
+
+    <div id='SectionContainerDiv0' class='SectionContainer'>
+    <table class='CodeTable'>
+    <colgroup><col width='100%'></colgroup>
+    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
+    public BOOSEParser()</pre></td></tr></tbody></table>
+    
+    
+    
+    
+    
+    
+    
+    
+
+</div>
+
+</p><hr></hr><p><div id="Header">
+    <div id="ProjectTitle">Documentation Preview</div>
     <div id="PageTitle">Method Parse</div>
     <div id="Contents" />
 
     
- Parses the entire BOOSE program text into a list of commands.
- Handles trimming, comment detection, empty lines, and line numbering.
+ Parses raw BOOSE program text into a list of executable commands.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -66,42 +97,21 @@
     
     <div class='CommentHeader'>Parameters</div>
 <div class='CommentParameterName'>programText</div><div class='ParameterCommentContainer'>
-Raw text entered by the user.
+
+ The complete BOOSE program source code entered by the user.
+ 
 </div>
 
     <div class='CommentHeader'>Return Value</div>
 <div class='ParameterCommentContainer'>
-A list of parsed <a href="" >IBOOSECommand</a> objects.
+
+ A list of parsed <a href="" >IBOOSECommand</a> objects.
+ 
 </div>
 
     
     
     
-<div id='SectionHeader1' class='SectionHeader'>
-   <img id='SectionExpanderImg1' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' /> 
-   <span class='SectionHeader'>
-       <span class='ArrowCursor'>
-       Exceptions
-       </span>
-   </span>
-</div>
-<div id='SectionContainerDiv1' class='SectionContainer'>
-<table class='MembersTable'>
-<col width='25%' />
-<col width='75%' />
-<tr>
-<th>Exception</th>
-<th>Condition</th></tr>
-<tr>
-<td><span class='PseudoLink'>BOOSEParseException</span></td>
-<td>
- Thrown when a line contains invalid syntax or an unknown command.
- </td>
-</tr>
-</table
-</div>
-</div>
-
     
     
 
@@ -109,13 +119,14 @@ A list of parsed <a href="" >IBOOSECommand</a> objects.
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Method ParseLine</div>
+    <div id="PageTitle">Method ParseLines</div>
     <div id="Contents" />
 
     
- Parses a single BOOSE command line (e.g., "moveto 50,100").
- Determines the command type and parses its arguments.
- 
+ Parses a sequence of lines into executable commands until an optional
+ end marker is encountered.
+ This method is used recursively for blocks such as:
+ <ul><li>method bodies</li><li>if / else blocks</li><li>while loops</li><li>for loops</li></ul>
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
         <span class='SectionHeader'>
@@ -129,46 +140,27 @@ A list of parsed <a href="" >IBOOSECommand</a> objects.
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    private static IBOOSECommand ParseLine(string line)</pre></td></tr></tbody></table>
+    private IList&lt;IBOOSECommand&gt; ParseLines(string[] lines, ref int index, params string[] endMarkers)</pre></td></tr></tbody></table>
     
     <div class='CommentHeader'>Parameters</div>
-<div class='CommentParameterName'>line</div><div class='ParameterCommentContainer'>
-A trimmed command line.
+<div class='CommentParameterName'>lines</div><div class='ParameterCommentContainer'>
+All program source lines.
+</div>
+<div class='CommentParameterName'>index</div><div class='ParameterCommentContainer'>
+Current parsing position (passed by reference).
+</div>
+<div class='CommentParameterName'>endMarkers</div><div class='ParameterCommentContainer'>
+Optional keywords that terminate the current block.
 </div>
 
     <div class='CommentHeader'>Return Value</div>
 <div class='ParameterCommentContainer'>
-An executable command object.
+A list of parsed commands within the block.
 </div>
 
     
     
     
-<div id='SectionHeader1' class='SectionHeader'>
-   <img id='SectionExpanderImg1' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' /> 
-   <span class='SectionHeader'>
-       <span class='ArrowCursor'>
-       Exceptions
-       </span>
-   </span>
-</div>
-<div id='SectionContainerDiv1' class='SectionContainer'>
-<table class='MembersTable'>
-<col width='25%' />
-<col width='75%' />
-<tr>
-<th>Exception</th>
-<th>Condition</th></tr>
-<tr>
-<td><span class='PseudoLink'>BOOSEParseException</span></td>
-<td>
- Thrown when the command name is unrecognized.
- </td>
-</tr>
-</table
-</div>
-</div>
-
     
     
 
@@ -176,12 +168,11 @@ An executable command object.
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Method ParseSingleInt</div>
+    <div id="PageTitle">Method ParseMethod</div>
     <div id="Contents" />
 
     
- Parses a single integer argument.
- Used for commands requiring only one numeric value (e.g., circle radius).
+ Parses a method declaration and registers it with the interpreter.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -196,7 +187,139 @@ An executable command object.
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    private static int ParseSingleInt(string arg)</pre></td></tr></tbody></table>
+    private void ParseMethod(string[] lines, ref int index)</pre></td></tr></tbody></table>
+    
+    
+    
+    
+    
+    
+    
+    
+
+</div>
+
+</p><hr></hr><p><div id="Header">
+    <div id="ProjectTitle">Documentation Preview</div>
+    <div id="PageTitle">Method ParseIf</div>
+    <div id="Contents" />
+
+    
+ Parses an IF / ELSE conditional block.
+ 
+        <div id='SectionHeader0' class='SectionHeader'>
+        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
+        <span class='SectionHeader'>
+            <span class='ArrowCursor' >
+            Syntax
+            </span>
+        </span>
+    </div>
+
+    <div id='SectionContainerDiv0' class='SectionContainer'>
+    <table class='CodeTable'>
+    <colgroup><col width='100%'></colgroup>
+    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
+    private IBOOSECommand ParseIf(string[] lines, ref int index)</pre></td></tr></tbody></table>
+    
+    
+    
+    
+    
+    
+    
+    
+
+</div>
+
+</p><hr></hr><p><div id="Header">
+    <div id="ProjectTitle">Documentation Preview</div>
+    <div id="PageTitle">Method ParseWhile</div>
+    <div id="Contents" />
+
+    
+ Parses a WHILE loop construct.
+ 
+        <div id='SectionHeader0' class='SectionHeader'>
+        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
+        <span class='SectionHeader'>
+            <span class='ArrowCursor' >
+            Syntax
+            </span>
+        </span>
+    </div>
+
+    <div id='SectionContainerDiv0' class='SectionContainer'>
+    <table class='CodeTable'>
+    <colgroup><col width='100%'></colgroup>
+    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
+    private IBOOSECommand ParseWhile(string[] lines, ref int index)</pre></td></tr></tbody></table>
+    
+    
+    
+    
+    
+    
+    
+    
+
+</div>
+
+</p><hr></hr><p><div id="Header">
+    <div id="ProjectTitle">Documentation Preview</div>
+    <div id="PageTitle">Method ParseFor</div>
+    <div id="Contents" />
+
+    
+ Parses a FOR loop construct, including optional step value.
+ 
+        <div id='SectionHeader0' class='SectionHeader'>
+        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
+        <span class='SectionHeader'>
+            <span class='ArrowCursor' >
+            Syntax
+            </span>
+        </span>
+    </div>
+
+    <div id='SectionContainerDiv0' class='SectionContainer'>
+    <table class='CodeTable'>
+    <colgroup><col width='100%'></colgroup>
+    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
+    private IBOOSECommand ParseFor(string[] lines, ref int index)</pre></td></tr></tbody></table>
+    
+    
+    
+    
+    
+    
+    
+    
+
+</div>
+
+</p><hr></hr><p><div id="Header">
+    <div id="ProjectTitle">Documentation Preview</div>
+    <div id="PageTitle">Method ParseSimpleCommand</div>
+    <div id="Contents" />
+
+    
+ Parses a simple, non-block BOOSE command.
+ 
+        <div id='SectionHeader0' class='SectionHeader'>
+        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
+        <span class='SectionHeader'>
+            <span class='ArrowCursor' >
+            Syntax
+            </span>
+        </span>
+    </div>
+
+    <div id='SectionContainerDiv0' class='SectionContainer'>
+    <table class='CodeTable'>
+    <colgroup><col width='100%'></colgroup>
+    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
+    private IBOOSECommand ParseSimpleCommand(string line)</pre></td></tr></tbody></table>
     
     
     
@@ -214,8 +337,8 @@ An executable command object.
     <div id="Contents" />
 
     
- Parses two comma-separated integers (e.g., "50,100").
- Used by commands like moveto and drawto.
+ Splits a conditional expression into its left operand,
+ comparison operator, and right operand.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -230,41 +353,7 @@ An executable command object.
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    private static (int, int) ParseTwoInts(string arg)</pre></td></tr></tbody></table>
-    
-    
-    
-    
-    
-    
-    
-    
-
-</div>
-
-</p><hr></hr><p><div id="Header">
-    <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Constructor </div>
-    <div id="Contents" />
-
-    
- Parses three comma-separated integers (R,G,B).
- Used by the pen/pencolour command.
- 
-        <div id='SectionHeader0' class='SectionHeader'>
-        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
-        <span class='SectionHeader'>
-            <span class='ArrowCursor' >
-            Syntax
-            </span>
-        </span>
-    </div>
-
-    <div id='SectionContainerDiv0' class='SectionContainer'>
-    <table class='CodeTable'>
-    <colgroup><col width='100%'></colgroup>
-    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    private static (int, int, int) ParseThreeInts(string arg)</pre></td></tr></tbody></table>
+    private (string Left, string Op, string Right) SplitCondition(string condition)</pre></td></tr></tbody></table>
     
     
     

@@ -7,13 +7,13 @@
 </head>
 <body><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Class BOOSEContext</div>
+    <div id="PageTitle">Class InterpreterTests</div>
     <div id="Contents" />
 
     
- Holds the shared drawing state used during BOOSE program execution.
- This context is passed to all commands and maintains the current pen,
- brush, drawing strategy, and pen position.
+ Integration and unit tests for the BOOSE Interpreter.
+ These tests verify correct behaviour of command execution,
+ variable handling, control flow, and parser integration.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -28,7 +28,7 @@
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public class BOOSEContext</pre></td></tr></tbody></table>
+    public class InterpreterTests</pre></td></tr></tbody></table>
     
     
     
@@ -42,12 +42,11 @@
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Constructor BOOSEContext</div>
+    <div id="PageTitle">Method CreateContext</div>
     <div id="Contents" />
 
     
- Initializes a new instance of the <a href="" >BOOSEContext</a> class
- with a default drawing strategy.
+ Creates a valid BOOSE execution context with a drawable canvas.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -62,17 +61,14 @@
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public BOOSEContext(Graphics graphics, Bitmap canvas)</pre></td></tr></tbody></table>
+    private BOOSEContext CreateContext()</pre></td></tr></tbody></table>
     
-    <div class='CommentHeader'>Parameters</div>
-<div class='CommentParameterName'>graphics</div><div class='ParameterCommentContainer'>
-Graphics object used for rendering operations.
-</div>
-<div class='CommentParameterName'>canvas</div><div class='ParameterCommentContainer'>
-Bitmap canvas on which drawing is performed.
+    
+    <div class='CommentHeader'>Return Value</div>
+<div class='ParameterCommentContainer'>
+A fully initialized <a href="" >BOOSEContext</a>.
 </div>
 
-    
     
     
     
@@ -83,11 +79,12 @@ Bitmap canvas on which drawing is performed.
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Property Canvas</div>
+    <div id="PageTitle">Method RuntimeMovetoCommand_UpdatesPenPosition</div>
     <div id="Contents" />
 
     
- Gets the bitmap canvas onto which all drawing operations are rendered.
+ Verifies that the RuntimeMovetoCommand correctly updates
+ the pen position without drawing.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -102,7 +99,7 @@ Bitmap canvas on which drawing is performed.
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public Bitmap Canvas</pre></td></tr></tbody></table>
+    public void RuntimeMovetoCommand_UpdatesPenPosition()</pre></td></tr></tbody></table>
     
     
     
@@ -116,11 +113,12 @@ Bitmap canvas on which drawing is performed.
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Property Pen</div>
+    <div id="PageTitle">Method RuntimeDrawToCommand_UpdatesPenPosition</div>
     <div id="Contents" />
 
     
- Gets the pen currently used for drawing shapes and lines.
+ Verifies that the RuntimeDrawToCommand draws a line and
+ updates the pen position to the target coordinates.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -135,7 +133,7 @@ Bitmap canvas on which drawing is performed.
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public Pen Pen</pre></td></tr></tbody></table>
+    public void RuntimeDrawToCommand_UpdatesPenPosition()</pre></td></tr></tbody></table>
     
     
     
@@ -149,12 +147,11 @@ Bitmap canvas on which drawing is performed.
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Property Brush</div>
+    <div id="PageTitle">Method LetCommand_AssignsVariable</div>
     <div id="Contents" />
 
     
- Gets the brush used for text rendering.
- The brush colour is kept in sync with the pen colour.
+ Verifies that the LetCommand assigns a scalar variable correctly.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -169,7 +166,7 @@ Bitmap canvas on which drawing is performed.
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public Brush Brush</pre></td></tr></tbody></table>
+    public void LetCommand_AssignsVariable()</pre></td></tr></tbody></table>
     
     
     
@@ -183,11 +180,11 @@ Bitmap canvas on which drawing is performed.
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Property DrawingStrategy</div>
+    <div id="PageTitle">Method ArrayDeclarationAndAssignment_WorkCorrectly</div>
     <div id="Contents" />
 
     
- Gets the drawing strategy used to perform drawing operations.
+ Verifies correct array declaration and element assignment.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -202,7 +199,7 @@ Bitmap canvas on which drawing is performed.
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public IDrawingStrategy DrawingStrategy</pre></td></tr></tbody></table>
+    public void ArrayDeclarationAndAssignment_WorkCorrectly()</pre></td></tr></tbody></table>
     
     
     
@@ -216,11 +213,12 @@ Bitmap canvas on which drawing is performed.
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Property PenPosition</div>
+    <div id="PageTitle">Method IfCommand_ExecutesThenBlock</div>
     <div id="Contents" />
 
     
- Gets or sets the current position of the pen on the canvas.
+ Verifies that the THEN block of an IF command is executed
+ when the condition evaluates to true.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -235,7 +233,7 @@ Bitmap canvas on which drawing is performed.
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public Point PenPosition</pre></td></tr></tbody></table>
+    public void IfCommand_ExecutesThenBlock()</pre></td></tr></tbody></table>
     
     
     
@@ -249,11 +247,12 @@ Bitmap canvas on which drawing is performed.
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Method SetPenColour</div>
+    <div id="PageTitle">Method WhileCommand_IncrementsVariable</div>
     <div id="Contents" />
 
     
- Updates the pen colour and recreates the brush to match the new colour.
+ Verifies that the WHILE command executes repeatedly
+ until its condition becomes false.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -268,13 +267,77 @@ Bitmap canvas on which drawing is performed.
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public void SetPenColour(Color color)</pre></td></tr></tbody></table>
+    public void WhileCommand_IncrementsVariable()</pre></td></tr></tbody></table>
     
-    <div class='CommentHeader'>Parameters</div>
-<div class='CommentParameterName'>color</div><div class='ParameterCommentContainer'>
-The new colour to apply to the pen.
+    
+    
+    
+    
+    
+    
+    
+
 </div>
 
+</p><hr></hr><p><div id="Header">
+    <div id="ProjectTitle">Documentation Preview</div>
+    <div id="PageTitle">Method ForCommand_RunsCorrectNumberOfTimes</div>
+    <div id="Contents" />
+
+    
+ Verifies that the FOR command executes the correct
+ number of iterations using an inclusive range.
+ 
+        <div id='SectionHeader0' class='SectionHeader'>
+        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
+        <span class='SectionHeader'>
+            <span class='ArrowCursor' >
+            Syntax
+            </span>
+        </span>
+    </div>
+
+    <div id='SectionContainerDiv0' class='SectionContainer'>
+    <table class='CodeTable'>
+    <colgroup><col width='100%'></colgroup>
+    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
+    public void ForCommand_RunsCorrectNumberOfTimes()</pre></td></tr></tbody></table>
+    
+    
+    
+    
+    
+    
+    
+    
+
+</div>
+
+</p><hr></hr><p><div id="Header">
+    <div id="ProjectTitle">Documentation Preview</div>
+    <div id="PageTitle">Method Parser_ExecutesMultiLineProgram</div>
+    <div id="Contents" />
+
+    
+ Verifies that the parser can successfully execute
+ a multi-line BOOSE program without errors.
+ 
+        <div id='SectionHeader0' class='SectionHeader'>
+        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
+        <span class='SectionHeader'>
+            <span class='ArrowCursor' >
+            Syntax
+            </span>
+        </span>
+    </div>
+
+    <div id='SectionContainerDiv0' class='SectionContainer'>
+    <table class='CodeTable'>
+    <colgroup><col width='100%'></colgroup>
+    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
+    public void Parser_ExecutesMultiLineProgram()</pre></td></tr></tbody></table>
+    
+    
     
     
     

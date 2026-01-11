@@ -7,14 +7,12 @@
 </head>
 <body><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Class RuntimeCircleCommand</div>
+    <div id="PageTitle">Interface ICommandFactory</div>
     <div id="Contents" />
 
     
- Represents a BOOSE command that draws a circle whose radius
- is resolved at runtime.
- This allows the radius to be defined using variables or expressions
- rather than a fixed literal value.
+ Defines a factory for creating BOOSE commands.
+ Implements the Factory design pattern.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -29,7 +27,7 @@
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public class RuntimeCircleCommand : IBOOSECommand</pre></td></tr></tbody></table>
+    public interface ICommandFactory</pre></td></tr></tbody></table>
     
     
     
@@ -43,11 +41,11 @@
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Constructor RuntimeCircleCommand</div>
+    <div id="PageTitle">Method Create</div>
     <div id="Contents" />
 
     
- Initializes a new instance of the <a href="" >RuntimeCircleCommand</a> class.
+ Creates a BOOSE command based on the command name and arguments.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -62,58 +60,21 @@
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public RuntimeCircleCommand(string radiusExpression)</pre></td></tr></tbody></table>
+    IBOOSECommand Create(string commandName, string arguments)</pre></td></tr></tbody></table>
     
     <div class='CommentHeader'>Parameters</div>
-<div class='CommentParameterName'>radiusExpression</div><div class='ParameterCommentContainer'>
-
- A string expression that evaluates to the radius of the circle
- (e.g. a variable name or numeric value).
- 
+<div class='CommentParameterName'>commandName</div><div class='ParameterCommentContainer'>
+Name of the command.
+</div>
+<div class='CommentParameterName'>arguments</div><div class='ParameterCommentContainer'>
+Raw argument string.
 </div>
 
-    
-    
-    
-    
-    
-    
-
+    <div class='CommentHeader'>Return Value</div>
+<div class='ParameterCommentContainer'>
+An executable BOOSE command.
 </div>
 
-</p><hr></hr><p><div id="Header">
-    <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Method Execute</div>
-    <div id="Contents" />
-
-    
- Executes the command by resolving the radius expression at runtime
- and drawing a circle using the active drawing strategy.
- 
-        <div id='SectionHeader0' class='SectionHeader'>
-        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
-        <span class='SectionHeader'>
-            <span class='ArrowCursor' >
-            Syntax
-            </span>
-        </span>
-    </div>
-
-    <div id='SectionContainerDiv0' class='SectionContainer'>
-    <table class='CodeTable'>
-    <colgroup><col width='100%'></colgroup>
-    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public void Execute(BOOSEContext context)</pre></td></tr></tbody></table>
-    
-    <div class='CommentHeader'>Parameters</div>
-<div class='CommentParameterName'>context</div><div class='ParameterCommentContainer'>
-
- The current BOOSE execution context containing the drawing state
- and drawing strategy.
- 
-</div>
-
-    
     
     
     

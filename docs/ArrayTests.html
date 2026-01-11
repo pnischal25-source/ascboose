@@ -7,14 +7,12 @@
 </head>
 <body><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Class RuntimeRectCommand</div>
+    <div id="PageTitle">Class ArrayTests</div>
     <div id="Contents" />
 
     
- Represents a BOOSE command that draws a rectangle whose
- width and height are resolved at runtime.
- This allows rectangle dimensions to be specified using
- variables or expressions rather than fixed values.
+ Unit tests for BOOSE array functionality, including
+ declaration, assignment, and bounds checking.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -29,7 +27,7 @@
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public class RuntimeRectCommand : IBOOSECommand</pre></td></tr></tbody></table>
+    public class ArrayTests</pre></td></tr></tbody></table>
     
     
     
@@ -43,11 +41,12 @@
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Constructor RuntimeRectCommand</div>
+    <div id="PageTitle">Method Setup</div>
     <div id="Contents" />
 
     
- Initializes a new instance of the <a href="" >RuntimeRectCommand</a> class.
+ Resets the interpreter state before each test to ensure
+ test isolation due to the singleton InterpreterManager.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -62,16 +61,9 @@
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public RuntimeRectCommand(string width, string height)</pre></td></tr></tbody></table>
+    public void Setup()</pre></td></tr></tbody></table>
     
-    <div class='CommentHeader'>Parameters</div>
-<div class='CommentParameterName'>width</div><div class='ParameterCommentContainer'>
-Expression that resolves to the rectangle width.
-</div>
-<div class='CommentParameterName'>height</div><div class='ParameterCommentContainer'>
-Expression that resolves to the rectangle height.
-</div>
-
+    
     
     
     
@@ -83,13 +75,12 @@ Expression that resolves to the rectangle height.
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Method Execute</div>
+    <div id="PageTitle">Method ArrayDeclarationAndAssignment_WorkCorrectly</div>
     <div id="Contents" />
 
     
- Executes the rectangle drawing command by resolving
- width and height expressions at runtime and drawing
- the rectangle using the active drawing strategy.
+ Verifies that arrays can be declared and assigned values
+ correctly, and that stored values can be retrieved.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -104,16 +95,43 @@ Expression that resolves to the rectangle height.
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public void Execute(BOOSEContext context)</pre></td></tr></tbody></table>
+    public void ArrayDeclarationAndAssignment_WorkCorrectly()</pre></td></tr></tbody></table>
     
-    <div class='CommentHeader'>Parameters</div>
-<div class='CommentParameterName'>context</div><div class='ParameterCommentContainer'>
+    
+    
+    
+    
+    
+    
+    
 
- The current BOOSE execution context containing drawing state
- and the active drawing strategy.
- 
 </div>
 
+</p><hr></hr><p><div id="Header">
+    <div id="ProjectTitle">Documentation Preview</div>
+    <div id="PageTitle">Method Array_AccessOutOfBounds_ThrowsException</div>
+    <div id="Contents" />
+
+    
+ Verifies that accessing an array element outside its
+ declared bounds throws an <a href="" >IndexOutOfRangeException</a>.
+ 
+        <div id='SectionHeader0' class='SectionHeader'>
+        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
+        <span class='SectionHeader'>
+            <span class='ArrowCursor' >
+            Syntax
+            </span>
+        </span>
+    </div>
+
+    <div id='SectionContainerDiv0' class='SectionContainer'>
+    <table class='CodeTable'>
+    <colgroup><col width='100%'></colgroup>
+    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
+    public void Array_AccessOutOfBounds_ThrowsException()</pre></td></tr></tbody></table>
+    
+    
     
     
     

@@ -7,12 +7,12 @@
 </head>
 <body><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Class MovetoCommand</div>
+    <div id="PageTitle">Class RuntimeMovetoCommand</div>
     <div id="Contents" />
 
     
  Represents the BOOSE command that moves the pen to a new position
- without drawing a line. This updates only the pen coordinates
+ without drawing a line. This command updates only the pen coordinates
  in the <a href="" >BOOSEContext</a> and does not modify the canvas.
  
         <div id='SectionHeader0' class='SectionHeader'>
@@ -28,7 +28,7 @@
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public class MovetoCommand : IBOOSECommand</pre></td></tr></tbody></table>
+    public class RuntimeMovetoCommand : IBOOSECommand</pre></td></tr></tbody></table>
     
     
     
@@ -42,11 +42,11 @@
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Constructor MovetoCommand</div>
+    <div id="PageTitle">Constructor RuntimeMovetoCommand</div>
     <div id="Contents" />
 
     
- Initializes a new instance of the <a href="" >MovetoCommand</a> class.
+ Initializes a new instance of the <a href="" >RuntimeMovetoCommand</a> class.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -61,82 +61,16 @@
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public MovetoCommand(int x, int y)</pre></td></tr></tbody></table>
+    public RuntimeMovetoCommand(string x, string y)</pre></td></tr></tbody></table>
     
     <div class='CommentHeader'>Parameters</div>
 <div class='CommentParameterName'>x</div><div class='ParameterCommentContainer'>
-The X-coordinate to move the pen to.
+Expression representing the X coordinate.
 </div>
 <div class='CommentParameterName'>y</div><div class='ParameterCommentContainer'>
-The Y-coordinate to move the pen to.
+Expression representing the Y coordinate.
 </div>
 
-    
-    
-    
-    
-    
-    
-
-</div>
-
-</p><hr></hr><p><div id="Header">
-    <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Property X</div>
-    <div id="Contents" />
-
-    
- Gets the X-coordinate the pen will move to.
- 
-        <div id='SectionHeader0' class='SectionHeader'>
-        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
-        <span class='SectionHeader'>
-            <span class='ArrowCursor' >
-            Syntax
-            </span>
-        </span>
-    </div>
-
-    <div id='SectionContainerDiv0' class='SectionContainer'>
-    <table class='CodeTable'>
-    <colgroup><col width='100%'></colgroup>
-    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public int X</pre></td></tr></tbody></table>
-    
-    
-    
-    
-    
-    
-    
-    
-
-</div>
-
-</p><hr></hr><p><div id="Header">
-    <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Property Y</div>
-    <div id="Contents" />
-
-    
- Gets the Y-coordinate the pen will move to.
- 
-        <div id='SectionHeader0' class='SectionHeader'>
-        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
-        <span class='SectionHeader'>
-            <span class='ArrowCursor' >
-            Syntax
-            </span>
-        </span>
-    </div>
-
-    <div id='SectionContainerDiv0' class='SectionContainer'>
-    <table class='CodeTable'>
-    <colgroup><col width='100%'></colgroup>
-    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public int Y</pre></td></tr></tbody></table>
-    
-    
     
     
     
@@ -152,8 +86,8 @@ The Y-coordinate to move the pen to.
     <div id="Contents" />
 
     
- Executes the movement operation by updating the pen's position
- within the interpreter context. No drawing is performed.
+ Executes the move-to operation by resolving the target coordinates
+ at runtime and updating the pen position accordingly.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -173,7 +107,8 @@ The Y-coordinate to move the pen to.
     <div class='CommentHeader'>Parameters</div>
 <div class='CommentParameterName'>context</div><div class='ParameterCommentContainer'>
 
- The interpreter context used to update the current pen position.
+ The current BOOSE execution context containing the pen position
+ and drawing state.
  
 </div>
 

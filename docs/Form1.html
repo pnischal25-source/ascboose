@@ -11,8 +11,9 @@
     <div id="Contents" />
 
     
- Main Windows Form for the BOOSE Interpreter.
- Hosts the program input editor, canvas display, and command execution logic.
+ Main Windows Form for the BOOSE Interpreter application.
+ Provides the user interface for writing, running, and clearing BOOSE programs,
+ as well as displaying debug and output information.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -45,8 +46,8 @@
     <div id="Contents" />
 
     
- Initializes a new instance of the <a href="" >Form1</a> class
- and outputs BOOSE library information for debugging.
+ Initializes a new instance of the <a href="" >Form1</a> class.
+ Sets up the UI and logs BOOSE library information.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -79,7 +80,8 @@
     <div id="Contents" />
 
     
- Handles the form load event. Preloads the program editor with a sample BOOSE script.
+ Handles the form load event.
+ Preloads the program editor with a sample BOOSE drawing program.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -112,8 +114,8 @@
     <div id="Contents" />
 
     
- Executes the program typed in the editor when the Run button is clicked.
- This includes parsing, command execution, and rendering output to the canvas.
+ Executes the BOOSE program entered by the user when the Run button is clicked.
+ Parses commands, renders output to the canvas, and logs execution status.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -131,6 +133,110 @@
     private void btnRun_Click(object sender, EventArgs e)</pre></td></tr></tbody></table>
     
     
+    
+    
+    
+    
+    
+    
+
+</div>
+
+</p><hr></hr><p><div id="Header">
+    <div id="ProjectTitle">Documentation Preview</div>
+    <div id="PageTitle">Method btnClear_Click</div>
+    <div id="Contents" />
+
+    
+ Clears the drawing canvas when the Clear button is clicked.
+ Resets the canvas to a blank white background.
+ 
+        <div id='SectionHeader0' class='SectionHeader'>
+        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
+        <span class='SectionHeader'>
+            <span class='ArrowCursor' >
+            Syntax
+            </span>
+        </span>
+    </div>
+
+    <div id='SectionContainerDiv0' class='SectionContainer'>
+    <table class='CodeTable'>
+    <colgroup><col width='100%'></colgroup>
+    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
+    private void btnClear_Click(object sender, EventArgs e)</pre></td></tr></tbody></table>
+    
+    
+    
+    
+    
+    
+    
+    
+
+</div>
+
+</p><hr></hr><p><div id="Header">
+    <div id="ProjectTitle">Documentation Preview</div>
+    <div id="PageTitle">Method aboutMenuItem_Click</div>
+    <div id="Contents" />
+
+    
+ Displays BOOSE library information when the About menu item is selected.
+ 
+        <div id='SectionHeader0' class='SectionHeader'>
+        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
+        <span class='SectionHeader'>
+            <span class='ArrowCursor' >
+            Syntax
+            </span>
+        </span>
+    </div>
+
+    <div id='SectionContainerDiv0' class='SectionContainer'>
+    <table class='CodeTable'>
+    <colgroup><col width='100%'></colgroup>
+    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
+    private void aboutMenuItem_Click(object sender, EventArgs e)</pre></td></tr></tbody></table>
+    
+    
+    
+    
+    
+    
+    
+    
+
+</div>
+
+</p><hr></hr><p><div id="Header">
+    <div id="ProjectTitle">Documentation Preview</div>
+    <div id="PageTitle">Method Log</div>
+    <div id="Contents" />
+
+    
+ Writes a message to the internal debug/output window.
+ 
+        <div id='SectionHeader0' class='SectionHeader'>
+        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
+        <span class='SectionHeader'>
+            <span class='ArrowCursor' >
+            Syntax
+            </span>
+        </span>
+    </div>
+
+    <div id='SectionContainerDiv0' class='SectionContainer'>
+    <table class='CodeTable'>
+    <colgroup><col width='100%'></colgroup>
+    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
+    private void Log(string message)</pre></td></tr></tbody></table>
+    
+    <div class='CommentHeader'>Parameters</div>
+<div class='CommentParameterName'>message</div><div class='ParameterCommentContainer'>
+The message to log.
+</div>
+
     
     
     

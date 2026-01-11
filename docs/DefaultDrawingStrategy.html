@@ -7,13 +7,12 @@
 </head>
 <body><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Class BOOSEContext</div>
+    <div id="PageTitle">Class DefaultDrawingStrategy</div>
     <div id="Contents" />
 
     
- Holds the shared drawing state used during BOOSE program execution.
- This context is passed to all commands and maintains the current pen,
- brush, drawing strategy, and pen position.
+ Default implementation of the <a href="" >IDrawingStrategy</a> interface.
+ Uses GDI+ (<a href="" >Graphics</a>) to render shapes and text onto the canvas.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -28,7 +27,7 @@
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public class BOOSEContext</pre></td></tr></tbody></table>
+    public class DefaultDrawingStrategy : IDrawingStrategy</pre></td></tr></tbody></table>
     
     
     
@@ -42,12 +41,11 @@
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Constructor BOOSEContext</div>
+    <div id="PageTitle">Constructor DefaultDrawingStrategy</div>
     <div id="Contents" />
 
     
- Initializes a new instance of the <a href="" >BOOSEContext</a> class
- with a default drawing strategy.
+ Initializes a new instance of the <a href="" >DefaultDrawingStrategy</a> class.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -62,14 +60,13 @@
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public BOOSEContext(Graphics graphics, Bitmap canvas)</pre></td></tr></tbody></table>
+    public DefaultDrawingStrategy(Graphics graphics)</pre></td></tr></tbody></table>
     
     <div class='CommentHeader'>Parameters</div>
 <div class='CommentParameterName'>graphics</div><div class='ParameterCommentContainer'>
-Graphics object used for rendering operations.
-</div>
-<div class='CommentParameterName'>canvas</div><div class='ParameterCommentContainer'>
-Bitmap canvas on which drawing is performed.
+
+ The <a href="" >Graphics</a> object used to render drawing commands.
+ 
 </div>
 
     
@@ -83,11 +80,11 @@ Bitmap canvas on which drawing is performed.
 
 </p><hr></hr><p><div id="Header">
     <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Property Canvas</div>
+    <div id="PageTitle">Method DrawLine</div>
     <div id="Contents" />
 
     
- Gets the bitmap canvas onto which all drawing operations are rendered.
+ Draws a straight line between two points.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -102,177 +99,152 @@ Bitmap canvas on which drawing is performed.
     <table class='CodeTable'>
     <colgroup><col width='100%'></colgroup>
     <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public Bitmap Canvas</pre></td></tr></tbody></table>
-    
-    
-    
-    
-    
-    
-    
-    
-
-</div>
-
-</p><hr></hr><p><div id="Header">
-    <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Property Pen</div>
-    <div id="Contents" />
-
-    
- Gets the pen currently used for drawing shapes and lines.
- 
-        <div id='SectionHeader0' class='SectionHeader'>
-        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
-        <span class='SectionHeader'>
-            <span class='ArrowCursor' >
-            Syntax
-            </span>
-        </span>
-    </div>
-
-    <div id='SectionContainerDiv0' class='SectionContainer'>
-    <table class='CodeTable'>
-    <colgroup><col width='100%'></colgroup>
-    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public Pen Pen</pre></td></tr></tbody></table>
-    
-    
-    
-    
-    
-    
-    
-    
-
-</div>
-
-</p><hr></hr><p><div id="Header">
-    <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Property Brush</div>
-    <div id="Contents" />
-
-    
- Gets the brush used for text rendering.
- The brush colour is kept in sync with the pen colour.
- 
-        <div id='SectionHeader0' class='SectionHeader'>
-        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
-        <span class='SectionHeader'>
-            <span class='ArrowCursor' >
-            Syntax
-            </span>
-        </span>
-    </div>
-
-    <div id='SectionContainerDiv0' class='SectionContainer'>
-    <table class='CodeTable'>
-    <colgroup><col width='100%'></colgroup>
-    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public Brush Brush</pre></td></tr></tbody></table>
-    
-    
-    
-    
-    
-    
-    
-    
-
-</div>
-
-</p><hr></hr><p><div id="Header">
-    <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Property DrawingStrategy</div>
-    <div id="Contents" />
-
-    
- Gets the drawing strategy used to perform drawing operations.
- 
-        <div id='SectionHeader0' class='SectionHeader'>
-        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
-        <span class='SectionHeader'>
-            <span class='ArrowCursor' >
-            Syntax
-            </span>
-        </span>
-    </div>
-
-    <div id='SectionContainerDiv0' class='SectionContainer'>
-    <table class='CodeTable'>
-    <colgroup><col width='100%'></colgroup>
-    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public IDrawingStrategy DrawingStrategy</pre></td></tr></tbody></table>
-    
-    
-    
-    
-    
-    
-    
-    
-
-</div>
-
-</p><hr></hr><p><div id="Header">
-    <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Property PenPosition</div>
-    <div id="Contents" />
-
-    
- Gets or sets the current position of the pen on the canvas.
- 
-        <div id='SectionHeader0' class='SectionHeader'>
-        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
-        <span class='SectionHeader'>
-            <span class='ArrowCursor' >
-            Syntax
-            </span>
-        </span>
-    </div>
-
-    <div id='SectionContainerDiv0' class='SectionContainer'>
-    <table class='CodeTable'>
-    <colgroup><col width='100%'></colgroup>
-    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public Point PenPosition</pre></td></tr></tbody></table>
-    
-    
-    
-    
-    
-    
-    
-    
-
-</div>
-
-</p><hr></hr><p><div id="Header">
-    <div id="ProjectTitle">Documentation Preview</div>
-    <div id="PageTitle">Method SetPenColour</div>
-    <div id="Contents" />
-
-    
- Updates the pen colour and recreates the brush to match the new colour.
- 
-        <div id='SectionHeader0' class='SectionHeader'>
-        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
-        <span class='SectionHeader'>
-            <span class='ArrowCursor' >
-            Syntax
-            </span>
-        </span>
-    </div>
-
-    <div id='SectionContainerDiv0' class='SectionContainer'>
-    <table class='CodeTable'>
-    <colgroup><col width='100%'></colgroup>
-    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
-    public void SetPenColour(Color color)</pre></td></tr></tbody></table>
+    public void DrawLine(Pen pen, Point start, Point end)</pre></td></tr></tbody></table>
     
     <div class='CommentHeader'>Parameters</div>
-<div class='CommentParameterName'>color</div><div class='ParameterCommentContainer'>
-The new colour to apply to the pen.
+<div class='CommentParameterName'>pen</div><div class='ParameterCommentContainer'>
+Pen used to draw the line.
+</div>
+<div class='CommentParameterName'>start</div><div class='ParameterCommentContainer'>
+Starting point of the line.
+</div>
+<div class='CommentParameterName'>end</div><div class='ParameterCommentContainer'>
+Ending point of the line.
+</div>
+
+    
+    
+    
+    
+    
+    
+
+</div>
+
+</p><hr></hr><p><div id="Header">
+    <div id="ProjectTitle">Documentation Preview</div>
+    <div id="PageTitle">Method DrawCircle</div>
+    <div id="Contents" />
+
+    
+ Draws a circle centered at the specified position.
+ 
+        <div id='SectionHeader0' class='SectionHeader'>
+        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
+        <span class='SectionHeader'>
+            <span class='ArrowCursor' >
+            Syntax
+            </span>
+        </span>
+    </div>
+
+    <div id='SectionContainerDiv0' class='SectionContainer'>
+    <table class='CodeTable'>
+    <colgroup><col width='100%'></colgroup>
+    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
+    public void DrawCircle(Pen pen, Point center, int radius)</pre></td></tr></tbody></table>
+    
+    <div class='CommentHeader'>Parameters</div>
+<div class='CommentParameterName'>pen</div><div class='ParameterCommentContainer'>
+Pen used to draw the circle.
+</div>
+<div class='CommentParameterName'>center</div><div class='ParameterCommentContainer'>
+Center point of the circle.
+</div>
+<div class='CommentParameterName'>radius</div><div class='ParameterCommentContainer'>
+Radius of the circle.
+</div>
+
+    
+    
+    
+    
+    
+    
+
+</div>
+
+</p><hr></hr><p><div id="Header">
+    <div id="ProjectTitle">Documentation Preview</div>
+    <div id="PageTitle">Method DrawRectangle</div>
+    <div id="Contents" />
+
+    
+ Draws a rectangle starting at the specified top-left position.
+ 
+        <div id='SectionHeader0' class='SectionHeader'>
+        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
+        <span class='SectionHeader'>
+            <span class='ArrowCursor' >
+            Syntax
+            </span>
+        </span>
+    </div>
+
+    <div id='SectionContainerDiv0' class='SectionContainer'>
+    <table class='CodeTable'>
+    <colgroup><col width='100%'></colgroup>
+    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
+    public void DrawRectangle(Pen pen, Point topLeft, int width, int height)</pre></td></tr></tbody></table>
+    
+    <div class='CommentHeader'>Parameters</div>
+<div class='CommentParameterName'>pen</div><div class='ParameterCommentContainer'>
+Pen used to draw the rectangle.
+</div>
+<div class='CommentParameterName'>topLeft</div><div class='ParameterCommentContainer'>
+Top-left corner of the rectangle.
+</div>
+<div class='CommentParameterName'>width</div><div class='ParameterCommentContainer'>
+Width of the rectangle.
+</div>
+<div class='CommentParameterName'>height</div><div class='ParameterCommentContainer'>
+Height of the rectangle.
+</div>
+
+    
+    
+    
+    
+    
+    
+
+</div>
+
+</p><hr></hr><p><div id="Header">
+    <div id="ProjectTitle">Documentation Preview</div>
+    <div id="PageTitle">Method DrawText</div>
+    <div id="Contents" />
+
+    
+ Draws a string of text at the specified position.
+ 
+        <div id='SectionHeader0' class='SectionHeader'>
+        <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
+        <span class='SectionHeader'>
+            <span class='ArrowCursor' >
+            Syntax
+            </span>
+        </span>
+    </div>
+
+    <div id='SectionContainerDiv0' class='SectionContainer'>
+    <table class='CodeTable'>
+    <colgroup><col width='100%'></colgroup>
+    <tbody><tr class='CodeTable'><th class='CodeTable'>C#</th></tr><tr class='CodeTable'><td class='CodeTable'><pre style='margin-left: 2px;'>
+    public void DrawText(string text, Font font, Brush brush, Point position)</pre></td></tr></tbody></table>
+    
+    <div class='CommentHeader'>Parameters</div>
+<div class='CommentParameterName'>text</div><div class='ParameterCommentContainer'>
+The text to render.
+</div>
+<div class='CommentParameterName'>font</div><div class='ParameterCommentContainer'>
+Font used to draw the text.
+</div>
+<div class='CommentParameterName'>brush</div><div class='ParameterCommentContainer'>
+Brush used to fill the text.
+</div>
+<div class='CommentParameterName'>position</div><div class='ParameterCommentContainer'>
+Top-left position where the text will be drawn.
 </div>
 
     

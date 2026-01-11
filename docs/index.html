@@ -1,78 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOOSE Documentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            margin: 0;
-            padding: 20px;
+        :root {
+            --primary-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --glass-bg: rgba(255, 255, 255, 0.95);
+            --text-color: #2d3748;
+            --link-color: #4c51bf;
+            --link-hover: #6b46c1;
+            --heading-color: #1a202c;
         }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-color);
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: var(--glass-bg);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
         h1 {
             text-align: center;
-            color: #333;
+            color: var(--heading-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 600;
         }
-        .container {
-            max-width: 900px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+        .subtitle {
+            text-align: center;
+            color: #4a5568;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
         }
-        ul {
-            list-style-type: none;
-            padding-left: 0;
+
+        .section {
+            margin-bottom: 40px;
         }
-        li {
-            padding: 8px 0;
+
+        .section-title {
+            color: var(--heading-color);
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
         a {
             text-decoration: none;
-            color: #0066cc;
-            font-size: 18px;
+            color: var(--text-color);
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
+
         a:hover {
-            text-decoration: underline;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--link-hover);
+            color: var(--link-hover);
         }
-        .section-title {
-            margin-top: 30px;
-            color: #444;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 5px;
+
+        a::before {
+            content: '📄';
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>BOOSE Project Documentation</h1>
-    <p>Welcome to the automatically generated documentation for the BOOSE interpreter project.</p>
+    <div class="container">
+        <h1>BOOSE Documentation</h1>
+        <p class="subtitle"> Project Documentation</p>
 
-    <h2 class="section-title">Core Classes</h2>
-    <ul>
-        <li><a href="BOOSEContext.html">BOOSEContext</a></li>
-        <li><a href="IBOOSECommand.html">IBOOSE</a></li>
-        <li><a href="BOOSEParser.html">BOOSEParser</a></li>
-        <li><a href="BOOSEParserException.html">BOOSEParserException</a></li>
-        <li><a href="Form1.html">Form1</a></li>
-        <li><a href="Form1.Designer.html">Form1 Designer</a></li>
-        <li><a href="BasicDrawingTest.html">Test</a></li>
-    </ul>
+        <!-- Core System -->
+        <div class="section">
+            <h2 class="section-title"> Core System</h2>
+            <div class="grid">
+                <a href="Program.html">Program</a>
+                <a href="Form1.html">Form1 (Main Window)</a>
+                <a href="Form1.Designer.html">Form1 Designer</a>
+                <a href="BOOSEContext.html">BOOSEContext</a>
+                <a href="InterpreterManager.html">InterpreterManager</a>
+                <a href="BOOSEParser.html">BOOSEParser</a>
+                <a href="BOOSEParseException.html">BOOSEParseException</a>
+                <a href="TestUtilities.html">TestUtilities</a>
+            </div>
+        </div>
 
-    <h2 class="section-title">Commands</h2>
-    <ul>
-        <li><a href="MoveToCommand.html">MoveToCommand</a></li>
-        <li><a href="DrawToCommand.html">DrawToCommand</a></li>
-        <li><a href="CircleCommand.html">CircleCommand</a></li>
-        <li><a href="RectCommand.html">RectCommand</a></li>
-        <li><a href="PenColourCommand.html">PenColourCommand</a></li>
-        <li><a href="WriteCommand.html">WriteCommand</a></li>
-    </ul>
+        <!-- Interfaces -->
+        <div class="section">
+            <h2 class="section-title"> Interfaces & Strategies</h2>
+            <div class="grid">
+                <a href="IBOOSECommand.html">IBOOSECommand</a>
+                <a href="ICommandFactory.html">ICommandFactory</a>
+                <a href="IDrawingStrategy.html">IDrawingStrategy</a>
+                <a href="DefaultDrawingStrategy.html">DefaultDrawingStrategy</a>
+            </div>
+        </div>
 
-</div>
+        <!-- Commands: Drawing -->
+        <div class="section">
+            <h2 class="section-title"> Drawing Commands</h2>
+            <div class="grid">
+                <a href="MovetoCommand.html">MoveToCommand</a>
+                <a href="DrawToCommand.html">DrawToCommand</a>
+                <a href="CircleCommand.html">CircleCommand</a>
+                <a href="RectCommand.html">RectCommand</a>
+                <a href="PenColourCommand.html">PenColourCommand</a>
+                <a href="WriteCommand.html">WriteCommand</a>
+            </div>
+        </div>
+
+        <!-- Commands: Logic & Variables -->
+        <div class="section">
+            <h2 class="section-title"> Logic & Variables</h2>
+            <div class="grid">
+                <a href="CommandFactory.html">CommandFactory</a>
+                <a href="BlockCommand.html">BlockCommand</a>
+                <a href="IfCommand.html">IfCommand</a>
+                <a href="WhileCommand.html">WhileCommand</a>
+                <a href="ForCommand.html">ForCommand</a>
+                <a href="LetCommand.html">LetCommand</a>
+                <a href="ArrayDeclarationCommand.html">ArrayDeclarationCommand</a>
+                <a href="ArrayAssignmentCommand.html">ArrayAssignmentCommand</a>
+                <a href="MethodCallCommand.html">MethodCallCommand</a>
+            </div>
+        </div>
+
+        <!-- Data Structures -->
+        <div class="section">
+            <h2 class="section-title"> Data Structures</h2>
+            <div class="grid">
+                <a href="VariableTable.html">VariableTable</a>
+                <a href="MethodTable.html">MethodTable</a>
+            </div>
+        </div>
+
+        <!-- Unit Tests -->
+        <div class="section">
+            <h2 class="section-title"> Unit Tests</h2>
+            <div class="grid">
+                <a href="BasicDrawingTests.html">BasicDrawingTests</a>
+                <a href="InterpreterTests.html">InterpreterTests</a>
+                <a href="ArrayTests.html">ArrayTests</a>
+                <a href="ConditionTests.html">ConditionTests</a>
+                <a href="LoopTests.html">LoopTests</a>
+                <a href="MethodTests.html">MethodTests</a>
+                <a href="VariableTests.html">VariableTests</a>
+            </div>
+        </div>
+
+    </div>
 
 </body>
+
 </html>

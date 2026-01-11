@@ -11,8 +11,9 @@
     <div id="Contents" />
 
     
- Represents a BOOSE command that writes a string of text at the
- current pen position using the interpreter's active brush and font.
+ Represents a BOOSE command that writes text to the canvas
+ at the current pen position.
+ The text may be a string literal, variable name, or expression.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -64,38 +65,15 @@
     
     <div class='CommentHeader'>Parameters</div>
 <div class='CommentParameterName'>text</div><div class='ParameterCommentContainer'>
-The text to write to the canvas.
+
+ The text, variable name, or expression to be written.
+ 
 </div>
 
     
     
     
     
-<div id='SectionHeader1' class='SectionHeader'>
-   <img id='SectionExpanderImg1' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' /> 
-   <span class='SectionHeader'>
-       <span class='ArrowCursor'>
-       Exceptions
-       </span>
-   </span>
-</div>
-<div id='SectionContainerDiv1' class='SectionContainer'>
-<table class='MembersTable'>
-<col width='25%' />
-<col width='75%' />
-<tr>
-<th>Exception</th>
-<th>Condition</th></tr>
-<tr>
-<td><span class='PseudoLink'>ArgumentNullException</span></td>
-<td>
- Thrown if <span class="Code">text</span> is null.
- </td>
-</tr>
-</table
-</div>
-</div>
-
     
     
 
@@ -107,7 +85,7 @@ The text to write to the canvas.
     <div id="Contents" />
 
     
- Gets the text content that will be written to the canvas.
+ Gets the raw text or expression provided to the write command.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -140,8 +118,8 @@ The text to write to the canvas.
     <div id="Contents" />
 
     
- Executes the text-rendering command by drawing the stored text
- at the current pen position on the BOOSE canvas.
+ Executes the write command by resolving the text or expression
+ and rendering it at the current pen position.
  
         <div id='SectionHeader0' class='SectionHeader'>
         <img id='SectionExpanderImg0' src='C:\Users\nisch\AppData\Roaming\DocPreview\1.6.2.0\css/BigSquareExpanded.gif' alt='Collapse/Expand' >
@@ -161,8 +139,8 @@ The text to write to the canvas.
     <div class='CommentHeader'>Parameters</div>
 <div class='CommentParameterName'>context</div><div class='ParameterCommentContainer'>
 
- The <a href="" >BOOSEContext</a> providing pen position, brush, and
- drawing surface for rendering operations.
+ The current BOOSE execution context containing drawing state
+ and the active drawing strategy.
  
 </div>
 
